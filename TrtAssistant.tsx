@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { analyzeLabResults, extractLabValuesFromText } from './services/geminiService';
+import { analyzeLabResults, extractLabValuesFromText } from './geminiService';
 import type { FormData, LabData } from './types';
 import { InjectionFrequency, BloodTestTiming } from './types';
 import StepIndicator from './components/StepIndicator';
