@@ -2,8 +2,8 @@
 export default {
   content: [
     "./index.html",
-    "./**/*.{js,ts,jsx,tsx}",
-    "!./node_modules/**"
+    "./{App,TrtAssistant,index}.tsx",
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},
