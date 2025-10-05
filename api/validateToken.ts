@@ -9,12 +9,19 @@ export default function handler(
   // Get the token from the query string parameters (e.g., /?token=YOUR_TOKEN)
   const { token } = request.query;
 
+  // --- Bypass for Testing ---
+  // If the special 'test-mode' token is used, grant access immediately.
+  if (token === 'test-mode') {
+    response.status(200).json({ message: 'Access granted in test mode.' });
+    return;
+  }
+
+  // --- Standard Validation Logic ---
+
   // Retrieve the valid token from a secure environment variable.
   // You will set this in your Vercel project's UI under "Settings" -> "Environment Variables".
   const validToken = process.env.VALID_ACCESS_TOKEN;
   
-  // --- Validation Logic ---
-
   // 1. Check if a secret token has been configured in Vercel's settings.
   // If not, return an error because the system is not set up correctly.
   if (!validToken) {
